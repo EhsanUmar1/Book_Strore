@@ -1,0 +1,73 @@
+<div class="col-md-7"  style="margin-left:20%; " >
+    <md-card ng-show="users.user" style="box-shadow: 5px 5px 5px 5px transparent;" >
+
+        <md-toolbar class="md-theme-light">
+
+            <h1 class="md-toolbar-tools">{{users.status}}</h1>
+
+
+        </md-toolbar>
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+
+            <md-button class="md-warn md-raised md-hue-2" ng-click="users.sign()">SignIn</md-button>
+
+            <md-button class="md-warn md-raised md-hue-2" ng-click="users.login()">Login</md-button>
+
+        </section>
+
+        <md-card-content layout-padding class="autoScroll" ng-show="users.first">
+
+            <md-input-container class=" md-block">
+
+                <label>Name</label>
+
+                <input ng-model="users.users.name"  type="text">
+            </md-input-container>
+            <md-input-container class="md-block">
+
+                <label>Email</label>
+                <input ng-model="users.users.email"  type="email"  ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+
+                <label>Password</label>
+                <input ng-model="users.users.password"  type="password"  >
+            </md-input-container>
+            <md-input-container class="md-block">
+
+                <label>Address</label>
+                <input ng-model="users.users.address" type="text"  ng-required="true">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+
+
+                <md-button class="md-raised md-primary" ng-disabled="!(!!users.users.name && !!users.users.email  && !!users.users.password || !!users.users.address)" ng-click="users.addCustomers()">SignIn</md-button>
+            </md-input-container>
+        </md-card-content>
+        <md-card-content layout-padding class="autoScroll" ng-hide="users.first">
+            <md-input-container class="md-block">
+
+                <label>Email</label>
+                <input  type="email" ng-model="users.existemail"  ng-required="true">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+
+                <label>Password</label>
+                <input  type="password"  ng-model="users.existpass" >
+            </md-input-container>
+            <md-input-container class="md-block">
+
+
+                <md-button class="md-raised md-primary" ng-click="users.exist('/home')">Login</md-button>
+            </md-input-container>
+            <!--<span ng-if="users.wrong" ng-class="" >
+
+            </span>-->
+        </md-card-content>
+
+
+    </md-card>
+
+</div>

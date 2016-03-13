@@ -1,0 +1,184 @@
+<style>
+    .che{
+        width:40%;
+        height:50%;
+        border:1px solid black ;
+        float: left;
+    }
+    .side{
+        max-width: 650px !important;
+        min-width:650px !important ;
+        height:750px ;
+    }
+</style>
+
+<div class="row">
+          {{products.check}}
+
+        <div class="col-md-3" style="margin-top: 3%; max-width: 400px; min-width: 100px;" >
+            <md-card style="background:#2b65f8; box-shadow: 5px 5px 5px 5px transparent; "  >
+                <md-card-content  >
+                    <div ng-click="products.addProducts()">
+                        <b style="color: #fcf8e3">ADD BOOKS</b>
+                        <ng-md-icon   icon="note_add" style="fill:white" size="20">
+
+                        </ng-md-icon>
+                        <md-tooltip md-direction="left">
+                            Add Books
+                        </md-tooltip>
+                    </div>
+
+
+
+                </md-card-content>
+            </md-card>
+
+
+            <md-card ng-if="sh"  ng-repeat="books in products.books" style="height: 10%;box-shadow: 5px 5px 5px 5px transparent;"  ng-click="products.sub(books.b_id)">
+                <md-card-content ng-hide="products.show"  >
+
+
+
+
+
+
+
+
+                    <span  style="text-transform: capitalize ; line-height: 1.1"  >{{books.b_name}}</span>
+                    <ng-md-icon ng-click="products.edit(books.b_name , books.b_id)" icon="edit" style="fill:red; float: right;"  size="25"> <md-tooltip md-direction="left">
+                        Edit
+                    </md-tooltip></ng-md-icon>
+
+
+
+                </md-card-content>
+            </md-card>
+            <md-card  style="box-shadow: 5px 5px 5px 5px transparent;">
+                <md-card-content  ng-show="products.show"  >
+
+
+
+
+
+                    <md-input-container>
+
+                        <input type="text" ng-model="products.rootFolders">
+
+                    </md-input-container>
+                    <md-button class="md-raised md-primary" ng-click="products.editName()">Edit</md-button>
+
+                </md-card-content>
+            </md-card>
+
+        </div>
+
+    <div class="col-md-9" style="margin-top: 3%; max-width: 80%; min-width: 70%;">
+        <md-card style="background:#2b65f8; box-shadow: 5px 5px 5px 5px transparent; "  >
+            <md-card-content  >
+                <div style="width:40%; float: left" ng-click="products.toggleRight()">
+                    <b style="color: #fcf8e3">ADD PRODUCTS</b>
+                    <ng-md-icon   icon="note_add" style="fill:white" size="20">
+
+                    </ng-md-icon>
+                    <md-tooltip md-direction="left">
+                        Add Products
+                    </md-tooltip>
+
+                </div>
+
+                <a ng-link="view({bookId: products.bookIde})"><div style="width:40%; margin-left:20%;  float: left">
+                   <center> <b style="color: #fcf8e3">VIEW</b>
+                       <ng-md-icon   icon="note_add" style="fill:white" size="20"></ng-md-icon></center>
+                    <md-tooltip md-direction="right">
+                        View Products
+                    </md-tooltip>
+
+                </div></a>
+
+
+            </md-card-content>
+            </md-card>
+
+       <!-- <li ng-repeat="prod in products.product">
+            {{prod.p_name}}
+            {{p_image}}
+            <img style="width:50% " ng-src="./uploads/{{prod.p_image}}">
+        </li>-->
+        <md-card  ng-repeat="prod in product" style=" box-shadow: 5px 5px 5px 5px transparent; width:25%; height:250px; display:inline-block; float: left"  >
+            <md-card-content  >
+
+
+                <a ng-link="sub({id: prod.p_id})"><img  style="width:85%;     border-radius: 16px; height:80%; margin-top:5%;   " ng-src="./BookStoreImages/{{prod.p_image}}"></a>
+
+
+                <h4 class="center"><center><strong>Price:Rs.{{ prod.p_price}}</strong></center></h4>
+
+
+            </md-card-content>
+        </md-card>
+
+
+
+
+</div>
+   <!-- <div class="col-md-4 " style="margin-left:70% ">
+        <div style="margin-top: 37px ">
+            <md-input-container  ng-click="products.addProducts()" class="md-block">
+
+
+                <md-button class="md-raised md-primary" ng-click="">Add Products</md-button>
+            </md-input-container>
+
+
+        </div>
+
+    </div>
+    -->
+    <div class="side" layout="column"  ng-cloak>
+        <section layout="row" ng-controller="RightCtrl" flex>
+
+
+            <md-sidenav class="md-sidenav-right md-whiteframe-z2 side" md-component-id="right">
+                <md-toolbar class="md-theme-light">
+                    <h1 class="md-toolbar-tools">Add Products</h1>
+
+
+                </md-toolbar>
+                <md-content  layout-padding>
+                    <md-input-group>
+                        <md-input-container>
+                            <label>Product Name:</label>
+                            <input type="text" ng-model="product.name" required="true" >
+                        </md-input-container >
+                        <md-input-container>
+                            <label>Product Price:</label>
+                            <input type="number" ng-model="product.price"  required="true" >
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>Product Description</label>
+                            <textarea type="text" ng-model="product.description" columns="1" md-maxlength="200" rows="5"></textarea>
+                        </md-input-container>
+                        <md-input-container>
+
+                            <input type="file" id="i_file" ng-model="filing" name="file" ng-file-select="onFileSelect($files)" multiple >
+
+
+                        </md-input-container>
+
+
+                    </md-input-group>
+                    <md-input-container class="md-block">
+
+
+                        <md-button class="md-raised md-primary" ng-disabled="!(!!product.name && !!product.price  && !!product.description)" ng-click="add()">Add</md-button>
+                    </md-input-container>
+                </md-content>
+            </md-sidenav>
+        </section>
+    </div>
+
+
+
+
+</div>

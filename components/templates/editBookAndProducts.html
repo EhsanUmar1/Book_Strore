@@ -1,0 +1,51 @@
+<md-dialog  style="border:5px solid black ;width:60%; margin-left:10%; margin-right:10%;    ">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add Books</h2>
+            <div  style=" margin-left: 70%" ng-click="hide()">
+                <ng-md-icon  icon="close" style="fill:white; float: right; " size="30" ></ng-md-icon>
+            </div>
+
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content style="max-width:1000px;max-height:800px; ">
+
+        <md-input-group>
+            <md-input-container>
+                <label>Books Name:</label>
+                <input type="text" ng-model="name" required="true" >
+            </md-input-container >
+            <md-input-container>
+                <label>Product Name:</label>
+                <input type="text" ng-model="productname" required="true" >
+            </md-input-container >
+            <md-input-container>
+                <label>Price:</label>
+                <input type="number" ng-model="price" required="true" >
+            </md-input-container>
+            <md-input-container>
+                <label>Quantity:</label>
+                <input type="number" ng-model="quantiy"  required="true" >
+            </md-input-container>
+
+            <md-input-container>
+
+
+
+
+            </md-input-container>
+
+
+        </md-input-group>
+        <md-input-container class="md-block">
+
+
+            <md-button class="md-raised md-primary" ng-click="edit()">Edit</md-button>
+        </md-input-container>
+
+    </md-dialog-content>
+
+
+
+</md-dialog>

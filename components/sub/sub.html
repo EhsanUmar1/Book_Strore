@@ -1,0 +1,99 @@
+<style>
+    .side{
+        max-width: 650px !important;
+        min-width:650px !important ;
+        height:750px  ;
+    }
+</style>
+{{sub.id}}
+<div class="row">
+    <div class="col-md-2">
+        <md-button class="md-fab md-fab-top-left left" aria-label="Insert Drive">
+            <div style="margin-top:18%; border:none  ">
+                <ng-md-icon ng-click="sub.toggleRight()"   icon="add_circle_outline" style="fill:white; " size="40">
+
+                </ng-md-icon>
+
+            </div>
+
+            <md-tooltip md-visible="demo.showTooltip" md-direction="{{demo.tipDirection}}">
+                Add
+            </md-tooltip>
+        </md-button>
+    </div>
+
+    <div class="col-md-10">
+        <md-card  ng-repeat="prod in subProducts" style="  width:30%; height:450px; display:inline-block; float: left"  >
+            <md-card-content  >
+
+
+                <img ng-if="prod.s_image"  style="width:90%;border-radius: 16px; height:85%; margin-top:5%;   " ng-src="./subproducts/{{prod.s_image}}">
+
+
+
+
+
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
+
+
+
+
+<div class="side" layout="column"  ng-cloak>
+    <section layout="row" ng-controller="Ctrl" flex>
+
+
+        <md-sidenav class="md-sidenav-right md-whiteframe-z2 side" md-component-id="right">
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Sub Products</h1>
+
+
+            </md-toolbar>
+            <md-content  layout-padding>
+                <md-input-group>
+                    <md-input-container>
+                        <label for="testInput">Book Author</label>
+                        <input type="text" id="testInput" ng-model="subproduct.authorname" md-autofocus>
+                    </md-input-container >
+                    <md-input-container>
+                        <label for="testInput">Publisher Name</label>
+                        <input type="text" id="testInput" ng-model="subproduct.publishername" md-autofocus>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label for="testInput">Read Or Write</label>
+                        <input type="text" id="testInput" ng-model="subproduct.wor" md-autofocus>
+                    </md-input-container>
+                    <md-input-container>
+
+                        <input type="file" id="i_file" name="file" ng-file-select="onFileSelect($files)" multiple >
+
+
+                    </md-input-container>
+                    <md-input-container>
+
+                        <label for="testInput">Description</label>
+                        <textarea type="text" ng-model="subproduct.bio" columns="1" md-maxlength="200" rows="6"></textarea>
+
+
+                    </md-input-container>
+
+
+                </md-input-group>
+                <md-input-container class="md-block">
+
+
+                    <md-button class="md-raised md-primary" ng-click="add()">Add</md-button>
+                </md-input-container>
+            </md-content>
+        </md-sidenav>
+    </section>
+</div>
+
+
+
+
+
+</div>

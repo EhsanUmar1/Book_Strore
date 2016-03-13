@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-12">
+         <md-card>
+             <md-card-content>
+                 <table class="table table-hover">
+                     <thead>
+                     <tr>
+                         <th>No#</th>
+                         <th>Book Name</th>
+                         <th>Product Name</th>
+                         <th>Price</th>
+                         <th>Quantity</th>
+                         <th>Action</th>
+
+
+
+                     </tr>
+                     </thead>
+                     <tbody>
+                     <tr ng-repeat="data in view.products">
+                         <td>{{$index  }}</td>
+                         <td>{{data.b_name}}</td>
+                         <td>{{data.p_name}}</td>
+                         <td>{{data.p_price}}</td>
+                         <td>{{data.b_quantity}}</td>
+                         <td><ng-md-icon ng-click="view.editProducts(data.b_id , data.p_id , data.b_name , data.p_name , data.p_price , data.b_quantity )"  icon="edit" style="fill:blue" size="20"> <md-tooltip md-direction="left">
+                             Edit
+                         </md-tooltip></ng-md-icon>
+                             <ng-md-icon ng-click="view.showConfirm(data.b_id ,data.p_id)" icon="delete" style="fill:blue" size="20">
+                                 <md-tooltip md-direction="right">
+                                     Delete
+                                 </md-tooltip>
+                             </ng-md-icon>
+                         </td>
+
+                     </tr>
+
+                     </tbody>
+                 </table>
+             </md-card-content>
+
+         </md-card>
+
+    </div>
+</div>

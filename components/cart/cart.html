@@ -1,0 +1,32 @@
+<div class="row">
+    <div  class="col-md-4"   ng-repeat="book in cart.products">
+
+        <md-card style="  width:100%;   height:500px; display:inline-block; float: left;box-shadow: 5px 5px 5px 5px transparent;margin-top: 50px"  >
+            <md-card-content  >
+
+                <h3 style="margin-left:10%; display: inline-block ">{{book.p_name}}</h3>
+                <img  style="width:90%; margin-left:5%; border-radius: 16px; height:70%;" ng-src="./BookStoreImages/{{book.p_image}}">
+              <div  style="width:100%; margin-left:-1%; display: inline-block">
+                  <md-button ng-click="cart.addToCart(book.b_id , book.p_id ,book.p_name , book.p_price , book.p_image ,1)" style="width:40%; margin-left:10%;    margin-top: 20px " class="md-raised md-primary"><ng-md-icon   icon="shopping_cart" style="fill:white" size="20"></ng-md-icon>Add To Cart</md-button>
+
+              </div>
+                <div style=" width:30%; float: right ">
+                    <h4 >Price:<label>{{book.p_price}}</label></h4>
+                </div>
+
+
+
+
+
+
+
+
+
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+
+</div>

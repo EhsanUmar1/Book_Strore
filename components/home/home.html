@@ -1,0 +1,71 @@
+<style>
+    img{
+        width:100% ;
+        height:100%;
+        border-radius: 1%;
+    }
+    /*md-card{
+        border-radius: 2.5%;
+    }*/
+</style>
+<div class="row"   >
+    <div class="col-md-3"  >
+        <md-card ng-repeat="h in home.mainPage" style="height: 10%; box-shadow: 5px 5px 5px 5px transparent;" ng-click="home.next($index)">
+            <md-card-content >
+
+                <ng-md-icon ng-if="h === 'home'" icon="home" style="fill:orange" size="25"></ng-md-icon>
+
+                <ng-md-icon  icon="more_vert" style="fill:black; float: right" size="25"></ng-md-icon>
+                <ng-md-icon ng-if="h === 'contact'" icon="phone_paused" style="fill:orange" size="25"></ng-md-icon>
+                <ng-md-icon ng-if="h === 'about'" icon="account_box" style="fill:orange" size="25"></ng-md-icon>
+                <ng-md-icon ng-if="h === 'feedback'" icon="layers" style="fill:orange" size="25"></ng-md-icon>
+                <span style="text-transform: capitalize ; line-height: 1.1" >{{h}}</span>
+
+
+            </md-card-content>
+        </md-card>
+        <md-card ng-show="addProduct" style="width:95%; height: 10%;box-shadow: 5px 5px 5px 5px transparent; " ng-click="products('/products')">
+            <md-card-content>
+                <ng-md-icon  icon="book" style="fill:orange" size="25"></ng-md-icon>
+                <ng-md-icon  icon="more_vert" style="fill:black; float: right" size="25"></ng-md-icon>
+                <span style="text-transform: capitalize ; line-height: 1.1" >add Products</span>
+            </md-card-content>
+        </md-card>
+
+    </div>
+   <div class="col-md-9">
+        <md-card style="box-shadow: 3px 3px 3px 3px transparent;">
+            <md-card-content>
+
+                    <carousel interval="home.myInterval" no-wrap="noWrapSlides">
+                        <slide ng-repeat="slide in home.slides" active="slide.active">
+                            <img ng-src="{{slide.image}}" style="margin:auto; width:100%; height:100% ">
+
+                        </slide>
+
+                    </carousel>
+
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
+
+<div class="row" >
+    <div  class="col-md-4"   ng-repeat="book in home.books">
+
+        <md-card style="  width:100%; margin-left:0%;  height:350px; display:inline-block; float: left;box-shadow: 5px 5px 5px 5px transparent;"  >
+            <md-card-content  >
+
+                <h5 style="margin-left:25%; display: inline-block ">{{book.b_name}}</h5>
+                <a ng-link="cart({bookId: book.b_id})"><img ng-if="book.b_image" style="width:90%; margin-left:5%;    border-radius: 16px; height:85%;    " ng-src="./addbooksImages/{{book.b_image}}"></a>
+
+
+
+
+            </md-card-content>
+        </md-card>
+
+    </div>
+
+
+</div>

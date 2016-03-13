@@ -1,0 +1,51 @@
+
+<md-dialog  style="border:5px solid black ;width:60%; margin-left:10%; margin-right:10%;    ">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add Books</h2>
+            <div  style=" margin-left: 70%" ng-click="hide()">
+                <ng-md-icon  icon="close" style="fill:white; float: right; " size="30" ></ng-md-icon>
+            </div>
+
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content style="max-width:1000px;max-height:800px; ">
+
+            <md-input-group>
+                <md-input-container>
+                    <label>Books Name:</label>
+                    <input type="text" ng-model="product.name" required="true" >
+                    {{product.name}}
+                </md-input-container >
+                <md-input-container>
+                    <label>Product Price:</label>
+                    <input type="number" ng-model="product.price"  required="true" >
+                </md-input-container>
+                <md-input-container>
+                    <label>Products Quantity:</label>
+                    <input type="number" ng-model="product.quantity" required="true" >
+
+                </md-input-container>
+                <md-input-container>
+
+                    <input type="file" id="i_file" name="file" ng-file-select="onFileSelect($files)" multiple >
+
+
+                </md-input-container>
+
+
+            </md-input-group>
+            <md-input-container class="md-block">
+
+
+                <md-button class="md-raised md-primary" ng-disabled="!(!!product.name && !!product.price  && !!product.quantity)" ng-click="add()">Add</md-button>
+            </md-input-container>
+
+        </md-dialog-content>
+
+
+
+</md-dialog>
+
+

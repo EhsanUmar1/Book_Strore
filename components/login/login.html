@@ -1,0 +1,42 @@
+<style>
+    .even-row{
+        background: red;
+    }
+
+</style>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6"   >
+        <md-card ng-show="admin"  style="    margin-left: 0%;box-shadow: 5px 5px 5px 5px transparent; "  >
+
+
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Admin Login</h1>
+
+
+            </md-toolbar>
+            <md-input-container class="md-block" >
+
+                <label>Email</label>
+                <input  type="email"  ng-model="login.email"  ng-required="true">
+
+                {{login.name}}
+
+            </md-input-container>
+            <md-input-container class="md-block">
+
+                <label>Password</label>
+                <input  type="password" ng-model="login.password"  >
+            </md-input-container>
+            <md-input-container class="md-block">
+
+
+                <md-button class="md-raised md-primary"  ng-click="login.admin('/home')">Login</md-button>
+            </md-input-container>
+        </md-card>
+
+    </div>
+
+
+</div>
+
